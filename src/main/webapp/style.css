@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1em;
+	font-weight: 400;
+	
+	
+}
+
+h1{
+	color:#66bbff
+}
+
+.botaoInicio{
+	text-decoration: none;
+	background-color: #66bbff;
+	padding: 10px, 15px, 10px, 15px;
+	color:white;
+	font-size:1.2em;
+	font-weight:700;
+	border-radius: 5px;
+	
+}
