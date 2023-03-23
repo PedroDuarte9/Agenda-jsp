@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="icon" href="imagem/favicon.png"/>
+<link rel="stylesheet" href="style.css"/>
+<title>Formulário</title>
+</head>
+<body>
+	<h1>Entrada Sócio Evento</h1>
+	<form name="frmContato" action="inserir">
+		<table>
+			<tr>
+				<td><input type="text" name="nome" placeholder="Nome" /></td>
+			</tr>
+			<tr>
+				<td><input type="text" name="fone" placeholder="Fone" /></td>
+			</tr>
+			<tr>
+				<td><input type="text" name="email" placeholder="E-mail" /></td>
+			</tr>
+		</table>
+		<input type="button" value="Adicionar"  class="botaoInicio" onclick="validar()" />
+		<script src="validador.js"></script>
+	</form>
+</body>
+</html>
