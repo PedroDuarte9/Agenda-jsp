@@ -3,7 +3,11 @@ package model;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
+
+import org.apache.jasper.tagplugins.jstl.core.ForEach;
 
 public class DAO {
 	/* Módulo de conexão */
@@ -61,6 +65,35 @@ public class DAO {
 
 		} catch (Exception e) {
 			System.out.println(e);
+		}
+	}
+	
+	/* CRUD Listar Dados */
+	public ArrayList<JavaBean> listarContatos(){
+		//Criando objeto para acessar a Classe JavaBean
+		ArrayList<JavaBean> contatos = new ArrayList<>();
+		String read = "select * from contatos";
+						
+		try {
+			Connection con = conectar();
+			PreparedStatement pst = con.prepareStatement(read);
+			ResultSet rs = pst.executeQuery();
+			
+			while(rs.next()) {
+				//Variaveis de apoio que recebem os dados do banco 
+				String idcon = rs.getString(1);
+				String nome = rs.getString(2);
+				String fone = rs.getString(3);
+				String email = rs.getString(4);
+				//Populando o ArrayList com o objeto criado acima
+				contatos.add(new JavaBean(idcon, nome, fone, email));
+			}
+			con.close();
+			return contatos;
+			
+		} catch (Exception e) {
+			System.out.println(e);
+			return null;
 		}
 	}
 

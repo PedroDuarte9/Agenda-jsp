@@ -5,7 +5,7 @@ public class JavaBean {
 	 * Podendo salvar o seu estado para o uso posterior partindo do mesmo ponto, ou seja salvando os dados num fluxo para posterior recuperação
 	 * Na prática */
 	
-	private int idcon;
+	private String idcon;
 	private String nome;
 	private String fone;
 	private String email;
@@ -14,19 +14,19 @@ public class JavaBean {
 		super();
 	}
 
-	public JavaBean(int idcon, String nome, String fone, String email) {
-		super();
+	public JavaBean(String idcon, String nome, String fone, String email) {
+		
 		this.idcon = idcon;
 		this.nome = nome;
 		this.fone = fone;
 		this.email = email;
 	}
 
-	public int getIdcon() {
+	public String getIdcon() {
 		return idcon;
 	}
 
-	public void setIdcon(int idcon) {
+	public void setIdcon(String idcon) {
 		this.idcon = idcon;
 	}
 
