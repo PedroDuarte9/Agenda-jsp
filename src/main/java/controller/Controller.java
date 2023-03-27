@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -44,19 +45,17 @@ public class Controller extends HttpServlet {
 			response.sendRedirect("index.html");
 		}
 	}
-
+	//Listar contatos
 	protected void contatos(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		//Listando contatos
-		ArrayList<JavaBean> lista = dao.listarContatos();
 		
-		//Teste de recebimento da lista
-		for(int i =0; i < lista.size(); i++) {
-			System.out.println(lista.get(i).getIdcon());
-			System.out.println(lista.get(i).getNome());
-			System.out.println(lista.get(i).getFone());
-			System.out.println(lista.get(i).getEmail());
-		}
+		//Criando um objeto que irá receber os dados JavaBean
+		ArrayList<JavaBean> lista = dao.listarContatos();
+		//Encaminhar a lista ao documento agenda.jsp
+		request.setAttribute("contatos", lista);
+		RequestDispatcher rd = request.getRequestDispatcher("agenda.jsp");
+		rd.forward(request, response);
+		
 	}
 	
 	protected void novoContato(HttpServletRequest request, HttpServletResponse response)
